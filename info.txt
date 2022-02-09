@@ -1,0 +1,35 @@
+####################FT_PRINTF##################
+
+The prototype	int ft_printf(const char *, ...)
+
+###	THINGS NOT TO IMPLEMENT	###
+
+--Buffer management
+
+### FILES TO TURN IN ###
+
+--libftprintf.a
+
+--Makefile
+--*.h, */*.h
+--*.c, */*.c
+
+### DESCRIPTION / THINGS TO KNOW ###
+
+--Must use 'ar' to create your library (libtool)-->FORBIDDEN
+
+### THINGS TO IMPLEMENT (CONVERSIONS) ###
+
+-- %c Prints a single char
+-- %s Prints a string
+-- %p The (void *) has to be printed in hex format
+-- %d Prints a deciaml (base 10) number
+-- %i Prints a integer in base 10
+-- %u Prints an unsigned deciaml (base 10) number
+-- %x Prints a number in hex (base 16) lowercase format
+-- %X Prints a number in hex (base 16) uppercase format
+-- %% Prints a percent sign
+
+### BONUS PART ###
+
+--"NOT GOING TO DO IT" for now ;)
