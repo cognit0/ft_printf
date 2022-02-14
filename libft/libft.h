@@ -61,6 +61,7 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int nb, int fd);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+void	ft_makelower(char *s);
 
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);

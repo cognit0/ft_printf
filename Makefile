@@ -15,7 +15,14 @@ INC_DIR	= includes
 OBJ_DIR	= obj
 PRINTF	= LC_NUMERIC="en_US.UTF-8" printf
 
-SRC		= ft_printf.c
+SRC		= ft_printf.c	\
+				ft_chrbase.c \
+				ft_numberbase.c	\
+				ft_hexbase.c	\
+				ft_fromatf.c	\
+				test_fun.c	\
+
+#SRC = test_fun.c	\
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
@@ -23,17 +30,17 @@ OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 all:	$(NAME)
 
 $(NAME) : $(OBJ)
-	@make -C $(LIBFT)
-	@cp libft/libft.a ./$(NAME)
+	@cd $(LIBFT)
+	@cp libft/libft.a $(NAME)
 	@$(AR) $(NAME) $(OBJ)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@$(PRINTF) "$(BLUE)Compiling $<\n"
+	@$(PRINTF) "$(BLUE)Compiling $^\n"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 test: all
-	@$(CC) -c test/tester.c
-	@$(CC) main.o $(NAME)
+	@$(CC) -c testing/main.c
+	@$(CC) main.o $(NAME) $(LIBFT)/libft.a
 	@./a.out 
 	@$(RM) a.out main.o
 
