@@ -2,6 +2,12 @@
 #include <stdarg.h>
 #include "libft.h"
 
+void	ft_testing(va_list *args, const char *s)
+{
+	char *b = va_arg((*args), char *);
+	ft_putstr_fd(b, 1);
+}
+
 void	ft_test(int n_args, ...)
 {
 	va_list args;
@@ -36,8 +42,18 @@ void	ft_print(const char *str, ...)
 		}
 		else if (str[i] == '%' && str[i + 1] == 'c')
 		{
-			char *b = va_arg(args, char *);
-			ft_putstr_fd(b, 1);
+			char *b;
+			if (i == 6)
+			{
+				ft_testing(&args, str);
+				i++;
+				continue ;
+			}
+			else
+			{
+				b = va_arg(args, char *);
+				ft_putstr_fd(b, 1);
+			}
 			i++;
 		}
 		else
@@ -50,8 +66,6 @@ int main(void)
 {
 	char s[] = "Hello World";
 	int *p;
-
-	printf("asdf %X asdf", (unsigned short )123);
 	ft_print("HELLO 1->%d 2->d 3->d MY NUMBERS\n", 5, 25, 59);
 	ft_print("%c%c%c%c <--- THE CHAR BABY\n", "sa", "rp", "42", "ecole");
 	// ft_test(4, 45, 22, 66, 25);

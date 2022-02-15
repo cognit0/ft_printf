@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yerkiral <yerkiral@42kocaeli.com>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/09 16:22:14 by yerkiral          #+#    #+#             */
-/*   Updated: 2022/02/09 18:26:03 by yerkiral         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/ft_printf.h"
 
 bool ft_numbase(size_t i, const char *str)
@@ -42,17 +30,8 @@ int		ft_printf(const char *str, ...)
 	rtn = 0;
 	while (str[i])
 	{
-		if (ft_numbase(i, str))
-			rtn += ft_formatd(str, &i, va_arg(args, long int));
-		else if (ft_charbase(i, str))
-		{
-			if (str[i + 1] == '%')
-				rtn += ft_formats(str, &i, NULL);
-			else
-				rtn += ft_formats(str, &i, va_arg(args, void *));
-		}
-		else if (ft_hxbase(i, str))
-			rtn += ft_formath(str, &i, va_arg(args, long long));
+		if (ft_numbase(i, str) || ft_hxbase(i, str) || ft_charbase(i, str))
+			rtn += ft_format(&args, str[i + 1], &i);
 		else
 		{
 			ft_putchar_fd(str[i], 1);

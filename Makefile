@@ -9,20 +9,25 @@ LIBFT	= libft
 CFLAGS	= -Wall -Werror -Wextra -I.
 RM		= rm -f
 CC		= gcc
-AR		= ar rcs
+AR		= ar -rcs
 SRC_DIR	= src
 INC_DIR	= includes
 OBJ_DIR	= obj
 PRINTF	= LC_NUMERIC="en_US.UTF-8" printf
 
-SRC		= ft_printf.c	\
+#SRC		= ft_printf.c	\
 				ft_chrbase.c \
 				ft_numberbase.c	\
 				ft_hexbase.c	\
 				ft_fromatf.c	\
-				test_fun.c	\
 
-#SRC = test_fun.c	\
+SRC = ft_utils.c	\
+	  ft_printf.c	\
+	  ft_charformat.c \
+	  ft_decformat.c	\
+	  ft_hexformat.c	\
+	  ft_unformat.c   \
+	  ft_format.c 		
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
@@ -45,7 +50,7 @@ test: all
 	@$(RM) a.out main.o
 
 clean:
-	@$(RM) $(OBJ_DIR)/%.o
+	@$(RM) $(OBJ_DIR)/*.o
 
 fclean: clean
 	@$(RM) $(NAME)
