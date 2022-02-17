@@ -22,11 +22,13 @@ PRINTF	= LC_NUMERIC="en_US.UTF-8" printf
 				ft_fromatf.c	\
 
 SRC = ft_utils.c	\
-	  ft_printf.c	\
+		ft_printf.c	\
 	  ft_charformat.c \
 	  ft_decformat.c	\
 	  ft_hexformat.c	\
 	  ft_unformat.c   \
+		ft_hexadecimal.c	\
+		ft_pointer.c	\
 	  ft_format.c 		
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))

@@ -15,9 +15,9 @@ int main()
 	char *s;
 	s = ft_strdup("Hello");
 
-	printf("Nega -> $%p$, Pos -> $%p$\n", 174837, -17236);
-	printf("%x", s);
 
+	printf("ORG -> %p\n", LONG_MIN);
+	ft_printf("FT  -> %p\n", LONG_MIN);
 	//printf("%%%c%%%s%%%d%%%i%%%d%%%i%%%%\n", 'A', "42", 42, 42 ,42 , 42);
 	//ft_printf("%%%c%%%s%%%d%%%i%%%d%%%i%%%%\n", 'A', "42", 42, 42 ,42 , 42);
 
